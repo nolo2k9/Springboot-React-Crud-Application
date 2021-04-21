@@ -18,6 +18,7 @@ const marginTop = {
               <Col lg ={12} style={marginTop}>
                   <Switch>
                       <Route path="/" exact component={Welcome, ListProducts}/>
+                      <Route path="/edit/:id" exact component={AddProducts}/>
                       <Route path="/add" exact component={AddProducts}/>
                   </Switch>
                </Col>

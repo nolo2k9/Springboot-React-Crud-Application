@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/products")
 public class ProductController {
 
 	@Autowired
@@ -23,7 +24,7 @@ public class ProductController {
 	}
 
 	// Get products by their id
-	@GetMapping("/products/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Product> get(@PathVariable Long id) {
 		try {
 
@@ -44,7 +45,7 @@ public class ProductController {
 	}
 
 	// Update a product
-	@PutMapping("/products/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<?> update(@RequestBody Product product, @PathVariable Long id) {
 		try {
 			Product existProduct = service.get(id);
@@ -56,7 +57,7 @@ public class ProductController {
 
 	}
 	
-	@DeleteMapping("/products/{id}")
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		service.delete(id);
 	}
